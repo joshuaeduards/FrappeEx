@@ -1,0 +1,7 @@
+## Accounting
+
+--
+
+#### License
+
+MIT
