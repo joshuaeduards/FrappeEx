@@ -33,20 +33,23 @@ frappe.ui.form.on("Items Table", "item", function(frm, cdt, cdn){
 		item.rate = form.rate;
 		frm.refresh_field('item_table');
 
-		if((form.item).length > 0){
-			frappe.call({
-				method: "accounting.sales_invoice.sales_invoice.get_item_rate",
-				args: {item_code: form.item}
-			}).done((r) => {
-				console.log(r.message.rate);
-				frm.set_value({
-					rate: r.message.rate
-				});
-				frm.refresh_field('item_table');
-			})
-		}
+		// if((form.item).length > 0){
+		// 	frappe.call({
+		// 		method: "frappe.core.doctype.user.get_all_roles",
 
-	
+		// 		args: {item_code: form.item}
+		// 	}).done((r) => {
+		// 		console.log(r);
+		// 		console.log(r.message.rate);
+		// 		frm.set_value({
+		// 			rate: r.message.rate
+		// 		});
+		// 		frm.refresh_field('item_table');
+		// 	})
+		// }
 })
+
+
+
 
 

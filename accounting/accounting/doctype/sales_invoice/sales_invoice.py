@@ -10,7 +10,7 @@ class SalesInvoice(Document):
 		posting_date = f'{self.posting_date}'
 		due_date = f'{self.payment_due_date}'
 		#party link(transaction->invoice) -> party(naming_series) 
-		party = f'{self.naming_series}'
+		party = f'{self.customer}'
 		amount = f'{self.total_amount}'
 
 		# items_table = f'{self.items_table}'
