@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-02-16 00:22:29.932339",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "posting_date",
+  "due_date",
+  "party",
+  "account",
+  "debit_amount",
+  "credit_amount",
+  "is_cancelled",
+  "voucher_type",
+  "voucher_number",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Link",
+   "label": "Party",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Data",
+   "label": "Account"
+  },
+  {
+   "fieldname": "debit_amount",
+   "fieldtype": "Float",
+   "label": "Debit Amount"
+  },
+  {
+   "fieldname": "credit_amount",
+   "fieldtype": "Float",
+   "label": "Credit Amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_cancelled",
+   "fieldtype": "Check",
+   "label": "Is Cancelled"
+  },
+  {
+   "fieldname": "voucher_type",
+   "fieldtype": "Data",
+   "label": "Voucher Type"
+  },
+  {
+   "fieldname": "voucher_number",
+   "fieldtype": "Data",
+   "label": "Voucher Number"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "GL Entry",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-02-17 15:20:23.289970",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "GL Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
