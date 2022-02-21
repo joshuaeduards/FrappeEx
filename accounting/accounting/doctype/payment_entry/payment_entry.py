@@ -4,9 +4,10 @@
 # import frappe
 from frappe.model.document import Document
 import frappe
+
 class PaymentEntry(Document):
 		def on_submit(self):
-			naming_series = f'{self.naming_series}'
+
 			posting_date = f'{self.posting_date}'
 
 			#party link(transaction->invoice) -> party(naming_series) 
