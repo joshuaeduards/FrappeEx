@@ -1,17 +1,22 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "field:naming_series",
  "creation": "2022-02-16 00:18:45.316648",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "column_break_2",
   "party",
+  "column_break_4",
   "posting_date",
+  "section_break_6",
   "accounting_entries_table",
+  "section_break_8",
   "description_transaction",
+  "column_break_12",
   "total_debit",
   "total_credit",
   "difference",
@@ -21,17 +26,23 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Data",
-   "label": "Naming Series"
+   "label": "Naming Series",
+   "read_only": 1,
+   "unique": 1
   },
   {
    "fieldname": "party",
    "fieldtype": "Data",
-   "label": "Party"
+   "in_list_view": 1,
+   "label": "Party",
+   "reqd": 1
   },
   {
    "fieldname": "posting_date",
    "fieldtype": "Date",
-   "label": "Posting Date"
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
   },
   {
    "fieldname": "accounting_entries_table",
@@ -41,23 +52,40 @@
   },
   {
    "fieldname": "description_transaction",
-   "fieldtype": "Data",
-   "label": "Description of Transaction"
+   "fieldtype": "Long Text",
+   "in_list_view": 1,
+   "label": "Description of Transaction",
+   "max_height": "180px",
+   "reqd": 1
   },
   {
+   "default": "0.00",
    "fieldname": "total_debit",
    "fieldtype": "Float",
-   "label": "Total Debit"
+   "in_list_view": 1,
+   "label": "Total Debit",
+   "precision": "1",
+   "read_only": 1,
+   "reqd": 1
   },
   {
+   "default": "0.00",
    "fieldname": "total_credit",
    "fieldtype": "Float",
-   "label": "Total Credit"
+   "label": "Total Credit",
+   "precision": "1",
+   "read_only": 1,
+   "reqd": 1
   },
   {
+   "default": "0.00",
    "fieldname": "difference",
    "fieldtype": "Float",
-   "label": "Difference"
+   "label": "Difference",
+   "max_height": "300px",
+   "precision": "1",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -67,16 +95,37 @@
    "options": "Journal Entry",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-02-17 23:03:38.950650",
+ "modified": "2022-03-08 17:58:41.467074",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal Entry",
- "naming_rule": "By \"Naming Series\" field",
+ "name_case": "Title Case",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

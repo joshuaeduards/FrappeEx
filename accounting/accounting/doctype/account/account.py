@@ -3,6 +3,10 @@
 
 # import frappe
 from frappe.utils.nestedset import NestedSet
+from frappe.model.naming import getseries
+import frappe 
 
 class Account(NestedSet):
-	pass
+	def autoname(self):
+		customname = '{0}-{1}'.format(self.account_number, self.account_name) 
+		self.name = customname

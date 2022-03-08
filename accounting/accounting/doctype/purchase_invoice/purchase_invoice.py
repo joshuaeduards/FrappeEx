@@ -11,7 +11,7 @@ class PurchaseInvoice(Document):
 		posting_date = f'{self.posting_date}'
 		due_date = f'{self.payment_due_date}'
 		#party link(transaction->invoice) -> party(naming_series) 
-		party = f'{self.customer}'
+		party = f'{self.supplier}'
 		amount = f'{self.total_amount}'
 
 		# items_table = f'{self.items_table}'
@@ -31,7 +31,7 @@ class PurchaseInvoice(Document):
 			'debit_amount': amount,
 			'credit_amount': '',
 			'is_cancelled': '',
-			'voucher_type': '',
+			'voucher_type': 'Purchase Invoice',
 			'voucher_number': ''
 			})
 		doc_inv.insert()
@@ -45,7 +45,7 @@ class PurchaseInvoice(Document):
 			'debit_amount': '',
 			'credit_amount': amount,
 			'is_cancelled': '',
-			'voucher_type': '',
+			'voucher_type': 'Purchase Invoice',
 			'voucher_number': ''	
 			})
 		doc_payable.insert()

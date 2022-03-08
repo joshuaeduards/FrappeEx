@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:account_name",
  "creation": "2022-02-14 16:49:23.196067",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -104,12 +103,10 @@
  "is_submittable": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2022-02-18 09:58:41.655995",
+ "modified": "2022-03-07 14:19:40.254735",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Account",
- "name_case": "Title Case",
- "naming_rule": "By fieldname",
  "nsm_parent_field": "parent_account",
  "owner": "Administrator",
  "permissions": [

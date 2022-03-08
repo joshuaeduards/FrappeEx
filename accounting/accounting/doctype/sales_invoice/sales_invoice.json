@@ -1,29 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:posting_date",
+ "autoname": "field:naming_series",
  "creation": "2022-02-14 18:22:53.763711",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "column_break_2",
   "customer",
-  "section_break_4",
+  "column_break_2",
   "posting_date",
-  "column_break_4",
   "payment_due_date",
-  "section_break_6",
+  "section_break_4",
   "item_table",
-  "section_break_8",
-  "column_break_8",
+  "section_break_6",
   "total_qty",
-  "column_break_10",
   "total_amount",
-  "section_break_15",
+  "column_break_4",
   "debit_to",
-  "column_break_17",
   "income_account",
   "amended_from"
  ],
@@ -34,7 +29,7 @@
    "in_list_view": 1,
    "label": "Naming Series",
    "length": 50,
-   "reqd": 1,
+   "read_only": 1,
    "unique": 1
   },
   {
@@ -88,19 +83,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_8",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_10",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "section_break_6",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "section_break_8",
    "fieldtype": "Section Break"
   },
   {
@@ -108,24 +91,18 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "section_break_15",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "debit_to",
    "fieldtype": "Link",
    "label": "Debit To",
-   "options": "Account"
-  },
-  {
-   "fieldname": "column_break_17",
-   "fieldtype": "Column Break"
+   "options": "Account",
+   "reqd": 1
   },
   {
    "fieldname": "income_account",
    "fieldtype": "Link",
    "label": "Income Account",
-   "options": "Account"
+   "options": "Account",
+   "reqd": 1
   },
   {
    "fieldname": "item_table",
@@ -137,12 +114,12 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-02-18 17:52:13.235611",
+ "modified": "2022-03-08 14:50:58.248933",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Sales Invoice",
  "name_case": "Title Case",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:posting_date",
+ "autoname": "field:naming_series",
  "creation": "2022-02-15 13:09:57.977358",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -28,13 +28,15 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Naming Series",
-   "reqd": 1
+   "read_only": 1,
+   "unique": 1
   },
   {
    "fieldname": "supplier",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Supplier",
+   "options": "Party",
    "reqd": 1
   },
   {
@@ -60,27 +62,27 @@
   },
   {
    "fieldname": "total_qty",
-   "fieldtype": "Data",
-   "label": "Total Qty",
-   "reqd": 1
+   "fieldtype": "Read Only",
+   "label": "Total Qty"
   },
   {
    "fieldname": "total_amount",
-   "fieldtype": "Data",
-   "label": "Total Amount",
-   "reqd": 1
+   "fieldtype": "Read Only",
+   "label": "Total Amount"
   },
   {
    "fieldname": "credit_to",
    "fieldtype": "Link",
    "label": "Credit To",
-   "options": "Account"
+   "options": "Account",
+   "reqd": 1
   },
   {
    "fieldname": "expense_account",
    "fieldtype": "Link",
    "label": "Expense Account",
-   "options": "Account"
+   "options": "Account",
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -111,12 +113,12 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-02-18 11:50:10.202453",
+ "modified": "2022-03-08 14:52:32.660836",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Purchase Invoice",
  "name_case": "Title Case",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

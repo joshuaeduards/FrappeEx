@@ -7,7 +7,6 @@ import frappe
 
 class PaymentEntry(Document):
 		def on_submit(self):
-
 			posting_date = f'{self.posting_date}'
 
 			#party link(transaction->invoice) -> party(naming_series) 

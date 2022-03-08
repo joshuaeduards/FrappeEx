@@ -7,9 +7,9 @@ import frappe
 
 class SalesInvoice(Document):
 	def on_submit(self):
+		naming_series = f'{self.naming_series}'
 		posting_date = f'{self.posting_date}'
 		due_date = f'{self.payment_due_date}'
-		#party link(transaction->invoice) -> party(naming_series) 
 		party = f'{self.customer}'
 		amount = f'{self.total_amount}'
 
@@ -30,7 +30,7 @@ class SalesInvoice(Document):
 			'debit_amount': amount,
 			'credit_amount': '',
 			'is_cancelled': '',
-			'voucher_type': '',
+			'voucher_type': 'Sales Invoice',
 			'voucher_number': ''
 			})
 		doc_inv.insert()
@@ -44,7 +44,7 @@ class SalesInvoice(Document):
 			'debit_amount': '',
 			'credit_amount': amount,
 			'is_cancelled': '',
-			'voucher_type': '',
+			'voucher_type': 'Sales Invoice',
 			'voucher_number': ''	
 			})
 		doc_cash.insert()
@@ -83,3 +83,5 @@ def get_item_rate(item_code):
 	sales_invoice = frappe.db.sql("SELECT standard_selling_rate FROM `tabItem` WHERE name = %s;", item_code)
 	return sales_invoice
 	# return "testing"
+
+	
