@@ -7,6 +7,7 @@ import frappe
 
 class PaymentEntry(Document):
 		def on_submit(self):
+			naming_series = f'{self.naming_series}'
 			posting_date = f'{self.posting_date}'
 
 			#party link(transaction->invoice) -> party(naming_series) 
@@ -26,7 +27,8 @@ class PaymentEntry(Document):
 				'posting_date': posting_date,
 				'due_date': '',
 				'party': party,
-				'account': 'Cash',
+				# 'account': 'Cash',
+				'account': naming_series,
 				'debit_amount': amount,
 				'credit_amount': '',
 				'is_cancelled': '',
@@ -40,7 +42,8 @@ class PaymentEntry(Document):
 				'posting_date': posting_date,
 				'due_date': '',
 				'party': party,
-				'account': 'Inventory',
+				# 'account': 'Inventory',
+				'account': naming_series,
 				'debit_amount': '',
 				'credit_amount': amount,
 				'is_cancelled': '',

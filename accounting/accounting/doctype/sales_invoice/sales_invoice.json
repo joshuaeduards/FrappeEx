@@ -113,8 +113,13 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2022-03-08 14:50:58.248933",
+ "links": [
+  {
+   "link_doctype": "Sales Invoice Rate Settings",
+   "link_fieldname": "rate"
+  }
+ ],
+ "modified": "2022-03-09 12:13:01.476984",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Sales Invoice",

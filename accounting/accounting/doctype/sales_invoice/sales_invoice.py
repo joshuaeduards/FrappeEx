@@ -4,9 +4,14 @@
 # import frappe
 from frappe.model.document import Document
 import frappe
+import time
+from datetime import datetime
 
 class SalesInvoice(Document):
 	def on_submit(self):
+		d = datetime.today()
+		unixtime = time.mktime(d.timetuple())
+
 		naming_series = f'{self.naming_series}'
 		posting_date = f'{self.posting_date}'
 		due_date = f'{self.payment_due_date}'
@@ -23,10 +28,12 @@ class SalesInvoice(Document):
 		#GENERAL LEDGER
 		doc_inv = frappe.get_doc({
 			'doctype': 'GL Entry',
+			'title': 'GLSI-'+str(unixtime),
 			'posting_date': posting_date,
 			'due_date': due_date,
 			'party': party,
-			'account': 'Inventory',
+			# 'account': 'Inventory',
+			'account': naming_series,
 			'debit_amount': amount,
 			'credit_amount': '',
 			'is_cancelled': '',
@@ -37,10 +44,12 @@ class SalesInvoice(Document):
 
 		doc_cash = frappe.get_doc({
 			'doctype': 'GL Entry',
+			'title': 'GLSI-'+str(unixtime),
 			'posting_date': posting_date,
 			'due_date': due_date,
 			'party': party,
-			'account': 'Cash',
+			# 'account': 'Cash',
+			'account': naming_series,
 			'debit_amount': '',
 			'credit_amount': amount,
 			'is_cancelled': '',
@@ -77,11 +86,24 @@ class SalesInvoice(Document):
 		# 	'voucher_number': ''	
 		# 	})
 		# doc_cash.insert()
+	def on_cancel(self):
+		naming_series = f'{self.naming_series}'
+		frappe.db.set_value('GL Entry', naming_series, 'is_cancelled', 1)
 
-@frappe.whitelist()
-def get_item_rate(item_code):
-	sales_invoice = frappe.db.sql("SELECT standard_selling_rate FROM `tabItem` WHERE name = %s;", item_code)
-	return sales_invoice
-	# return "testing"
+	# def autoname(self):
+	# 	naming_series = f'{self.naming_series}'
+	# 	frappe.db.set_value('GL Entry', naming_series, 'is_cancelled', True)
+
+# @frappe.whitelist()
+# def get_item_rate(item_code):
+# 	sales_invoice = frappe.db.sql("SELECT standard_selling_rate FROM `tabItem` WHERE name = %s;", item_code)
+# 	return sales_invoice
+# 	# return "testing"
+
+# @frappe.whitelist()
+# def rate_settings():
+# 	is_editable = frappe.db.sql("SELECT `Sales Invoice Rate Settings` FROM `tabSingles`")
+# 	return is_editable
+# 	# return "testing"
 
 	

@@ -1,6 +1,25 @@
 // Copyright (c) 2022, -- and contributors
 // For license information, please see license.txt
 
+// frappe.ui.form.on('Item Table', 'refresh', function(frm){
+// 	// rate: function(frm, cdt, cdn){
+// 		console.log(frm);
+// 		frappe.db.get_single_value('Sales Invoice Rate Settings', 'is_rate_editable').then(response => {
+// 			// console.log("response")
+// 			console.log(response)
+			
+// 			if(response === 1){
+// 				console.log("editable")
+// 				// frappe.ui.form.on('Item Table', 'item', function(frm){
+// 					frm.set_df_property('rate', 'read_only', 0);
+// 					refresh_field('rate');
+// 				// })
+// 			}
+// 		})
+// 	// }
+
+// });
+
 frappe.ui.form.on('Sales Invoice', 'validate', function(frm) {
 	let toDate = (date) => {
 		return new Date(date);
@@ -16,11 +35,33 @@ frappe.ui.form.on('Sales Invoice', 'validate', function(frm) {
 	}
 });
 
+// frappe.ui.form.on('Item Table', 'refresh', function(frm){
+// 	frappe.db.get_single_value('Sales Invoice Rate Settings', 'is_rate_editable').then(response => {
+// 		console.log("response")
+// 		console.log(response)
+		
+// 		if(response === 1){
+// 			console.log("editable")
+// 			console.log(frm);
+// 			frm.set_df_property('rate', 'read_only', true);
+
+// 			// frappe.model.set_df_property('rate', 'read_only', 1)
+// 			refresh_field('rate');
+
+// 		}
+// 	})
+// })
+
 frappe.ui.form.on('Sales Invoice', {
+	// item: function(frm, cdt, cdn){
+	// 	console.log("click");
+	// 	var d = locals[cdt][cdn];
+		
+	// },
 	qty: function(frm, cdt, cdn){
 		var d = locals[cdt][cdn];
 		var total = 0;
-		console.log(frm);
+		// console.log(frm);
 		frm.doc.item_table.forEach(function(d){
 			total += d.qty;
 		});

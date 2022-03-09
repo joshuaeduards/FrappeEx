@@ -6,21 +6,28 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "rate"
+  "sales_invoice_section",
+  "is_rate_editable"
  ],
  "fields": [
   {
-   "fieldname": "rate",
-   "fieldtype": "Float",
+   "default": "0",
+   "fieldname": "is_rate_editable",
+   "fieldtype": "Check",
    "in_list_view": 1,
-   "label": "Rate",
+   "label": "is Rate Editable",
    "reqd": 1
+  },
+  {
+   "fieldname": "sales_invoice_section",
+   "fieldtype": "Section Break",
+   "label": "Sales Invoice"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-03-08 14:20:02.322262",
+ "modified": "2022-03-09 12:45:08.031314",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Sales Invoice Rate Settings",

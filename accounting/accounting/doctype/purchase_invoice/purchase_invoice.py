@@ -27,7 +27,8 @@ class PurchaseInvoice(Document):
 			'posting_date': posting_date,
 			'due_date': due_date,
 			'party': party,
-			'account': 'Inventory',
+			#'account': 'Inventory',
+			'account': naming_series,
 			'debit_amount': amount,
 			'credit_amount': '',
 			'is_cancelled': '',
@@ -41,7 +42,8 @@ class PurchaseInvoice(Document):
 			'posting_date': posting_date,
 			'due_date': due_date,
 			'party': party,
-			'account': 'Product Expense',
+			#'account': 'Product Expense',
+			'account': naming_series,
 			'debit_amount': '',
 			'credit_amount': amount,
 			'is_cancelled': '',
@@ -78,3 +80,4 @@ class PurchaseInvoice(Document):
 		# 	'voucher_number': ''	
 		# 	})
 		# doc_payable.insert()
+		
