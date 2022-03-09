@@ -133,7 +133,7 @@ frappe.ui.form.on('Sales Invoice', 'onload', function(frm){
 	frm.set_query('debit_to', function() {
 		return {
 			filters: {
-				account_type: 'Asset' 
+				account_type: 'Asset',
 			}
 		}
 	})
@@ -141,7 +141,7 @@ frappe.ui.form.on('Sales Invoice', 'onload', function(frm){
 	frm.set_query('income_account', function() {
 		return {
 			filters: {
-				account_type: 'Income' 
+				account_type: 'Income',
 			}
 		}
 	})
