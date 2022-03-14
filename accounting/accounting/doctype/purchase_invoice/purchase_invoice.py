@@ -13,6 +13,8 @@ class PurchaseInvoice(Document):
 		#party link(transaction->invoice) -> party(naming_series) 
 		party = f'{self.supplier}'
 		amount = f'{self.total_amount}'
+		name = f'{self.name}'
+		voucher_number = name.split("-")[0]
 
 		# items_table = f'{self.items_table}'
 		# for x in items_table:
@@ -33,7 +35,7 @@ class PurchaseInvoice(Document):
 			'credit_amount': '',
 			'is_cancelled': '',
 			'voucher_type': 'Purchase Invoice',
-			'voucher_number': ''
+			'voucher_number': 'PI'+str(voucher_number)
 			})
 		doc_inv.insert()
 
@@ -48,7 +50,7 @@ class PurchaseInvoice(Document):
 			'credit_amount': amount,
 			'is_cancelled': '',
 			'voucher_type': 'Purchase Invoice',
-			'voucher_number': ''	
+			'voucher_number': 'PI'+str(voucher_number)	
 			})
 		doc_payable.insert()
 

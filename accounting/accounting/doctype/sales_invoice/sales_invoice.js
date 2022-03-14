@@ -19,7 +19,7 @@
 // 	// }
 
 // });
-
+ 
 frappe.ui.form.on('Sales Invoice', 'validate', function(frm) {
 	let toDate = (date) => {
 		return new Date(date);
@@ -35,22 +35,30 @@ frappe.ui.form.on('Sales Invoice', 'validate', function(frm) {
 	}
 });
 
-// frappe.ui.form.on('Item Table', 'refresh', function(frm){
-// 	frappe.db.get_single_value('Sales Invoice Rate Settings', 'is_rate_editable').then(response => {
-// 		console.log("response")
-// 		console.log(response)
+frappe.ui.form.on('Sales Invoice', {
+
+	refresh: function(frm){
+	frappe.db.get_single_value('Sales Invoice Rate Settings', 'is_rate_editable').then(response => {
+		console.log("response")
+		console.log(response)
 		
-// 		if(response === 1){
-// 			console.log("editable")
-// 			console.log(frm);
-// 			frm.set_df_property('rate', 'read_only', true);
+		if(response === 1){
+			console.log("editable")
+			console.log(frm);
+			frm.set_df_property('rate', 'read_only', 1);
 
-// 			// frappe.model.set_df_property('rate', 'read_only', 1)
-// 			refresh_field('rate');
+			// frappe.model.set_df_property('rate', 'read_only', 1)
+			refresh_field('rate');
+			console.log("end");
+		}
+	})
+}
+})
 
-// 		}
-// 	})
-// })
+frappe.ui.form.on("Sales Invoice", "onload", function(frm, cdt, cdn){
+	let df = frappe.get_doc(cdt, cdn);
+	console.log(df);
+})
 
 frappe.ui.form.on('Sales Invoice', {
 	// item: function(frm, cdt, cdn){
@@ -145,23 +153,23 @@ frappe.ui.form.on("Items Table", "rate", function(frm, cdt, cdn){
 
 frappe.ui.form.on('Sales Invoice', 'onload', function(frm){
 	
-	function naming_series(pre_name=""){
-		if(pre_name !== ""){
-			const date = new Date();
-			let naming_series = date.getFullYear()+'-'+
-								date.getMonth()+
-								date.getDate()+
-								date.getSeconds()+
-								date.getMilliseconds()
-			return pre_name+'-'+naming_series;
-		}
-		return;
-	}
+	// function naming_series(pre_name=""){
+	// 	if(pre_name !== ""){
+	// 		const date = new Date();
+	// 		let naming_series = date.getFullYear()+'-'+
+	// 							date.getMonth()+
+	// 							date.getDate()+
+	// 							date.getSeconds()+
+	// 							date.getMilliseconds()
+	// 		return pre_name+'-'+naming_series;
+	// 	}
+	// 	return;
+	// }
 
-	const pre_name = "SI";
-	frm.set_value({
-		naming_series: naming_series(pre_name)
-	})
+	// const pre_name = "SI";
+	// frm.set_value({
+	// 	naming_series: naming_series(pre_name)
+	// })
 
 	frm.set_query('customer', function() {
 		return {

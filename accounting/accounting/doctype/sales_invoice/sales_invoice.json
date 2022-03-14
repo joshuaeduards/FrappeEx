@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:naming_series",
+ "autoname": "naming_series:",
  "creation": "2022-02-14 18:22:53.763711",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -25,12 +25,12 @@
  "fields": [
   {
    "fieldname": "naming_series",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Naming Series",
    "length": 50,
-   "read_only": 1,
-   "unique": 1
+   "options": "ACC-SI-.YYYY.-\nACC_SI-.YYYY.-",
+   "reqd": 1
   },
   {
    "fieldname": "customer",
@@ -113,18 +113,13 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [
-  {
-   "link_doctype": "Sales Invoice Rate Settings",
-   "link_fieldname": "rate"
-  }
- ],
- "modified": "2022-03-09 12:13:01.476984",
+ "links": [],
+ "modified": "2022-03-14 16:46:58.817381",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Sales Invoice",
  "name_case": "Title Case",
- "naming_rule": "By fieldname",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

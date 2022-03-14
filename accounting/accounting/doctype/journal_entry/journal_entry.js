@@ -4,23 +4,23 @@
 frappe.ui.form.on('Journal Entry', 'onload', function(frm){
 	console.log('test');
 	// refresh: function(frm) {
-	function naming_series(pre_name=""){
-		if(pre_name !== ""){
-			const date = new Date();
-			let naming_series = date.getFullYear()+'-'+
-								date.getMonth()+
-								date.getDate()+
-								date.getSeconds()+
-								date.getMilliseconds()
-			return pre_name+'-'+naming_series;
-		}
-		return;
-	}
+	// function naming_series(pre_name=""){
+	// 	if(pre_name !== ""){
+	// 		const date = new Date();
+	// 		let naming_series = date.getFullYear()+'-'+
+	// 							date.getMonth()+
+	// 							date.getDate()+
+	// 							date.getSeconds()+
+	// 							date.getMilliseconds()
+	// 		return pre_name+'-'+naming_series;
+	// 	}
+	// 	return;
+	// }
 
-	const pre_name = "JE";
-	frm.set_value({
-		naming_series: naming_series(pre_name)
-	})
+	// const pre_name = "JE";
+	// frm.set_value({
+	// 	naming_series: naming_series(pre_name)
+	// })
 	// }
 });
 

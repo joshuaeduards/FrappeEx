@@ -13,6 +13,8 @@ class PaymentEntry(Document):
 			#party link(transaction->invoice) -> party(naming_series) 
 			party = f'{self.party}'
 			amount = f'{self.amount}'
+			name = f'{self.name}'
+			voucher_number = name.split("-")[0]
 
 			# items_table = f'{self.items_table}'
 			# for x in items_table:
@@ -32,8 +34,8 @@ class PaymentEntry(Document):
 				'debit_amount': amount,
 				'credit_amount': '',
 				'is_cancelled': '',
-				'voucher_type': '',
-				'voucher_number': ''
+				'voucher_type': 'Payment Entry',
+				'voucher_number': 'PE'+str(voucher_number)
 				})
 			doc_inv.insert()
 
@@ -47,7 +49,7 @@ class PaymentEntry(Document):
 				'debit_amount': '',
 				'credit_amount': amount,
 				'is_cancelled': '',
-				'voucher_type': '',
-				'voucher_number': ''	
+				'voucher_type': 'Payment Entry',
+				'voucher_number': 'PE'+str(voucher_number)	
 				})
 			doc_payable.insert()

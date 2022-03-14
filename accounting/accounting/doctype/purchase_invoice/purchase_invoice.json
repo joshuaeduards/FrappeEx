@@ -1,16 +1,18 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:naming_series",
+ "autoname": "naming_series:",
  "creation": "2022-02-15 13:09:57.977358",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "section_break_2",
   "supplier",
   "column_break_3",
   "posting_date",
+  "column_break_6",
   "payment_due_date",
   "section_break_6",
   "items_table",
@@ -25,11 +27,11 @@
  "fields": [
   {
    "fieldname": "naming_series",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Naming Series",
-   "read_only": 1,
-   "unique": 1
+   "options": "ACC-PI-.YYYY.-\nACC_PI-.YYYY.-",
+   "reqd": 1
   },
   {
    "fieldname": "supplier",
@@ -61,11 +63,13 @@
    "reqd": 1
   },
   {
+   "columns": 2,
    "fieldname": "total_qty",
    "fieldtype": "Read Only",
    "label": "Total Qty"
   },
   {
+   "columns": 2,
    "fieldname": "total_amount",
    "fieldtype": "Read Only",
    "label": "Total Amount"
@@ -108,17 +112,25 @@
   {
    "fieldname": "column_break_11",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-08 14:52:32.660836",
+ "modified": "2022-03-14 17:20:00.882046",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Purchase Invoice",
  "name_case": "Title Case",
- "naming_rule": "By fieldname",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

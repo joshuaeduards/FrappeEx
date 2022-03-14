@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:naming_series",
+ "autoname": "naming_series:",
  "creation": "2022-02-16 00:18:45.316648",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -25,16 +25,17 @@
  "fields": [
   {
    "fieldname": "naming_series",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "label": "Naming Series",
-   "read_only": 1,
-   "unique": 1
+   "options": "ACC-JE-.YYYY.-\nACC_JE-.YYYY.-",
+   "reqd": 1
   },
   {
    "fieldname": "party",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Party",
+   "options": "Party",
    "reqd": 1
   },
   {
@@ -98,7 +99,7 @@
   },
   {
    "fieldname": "column_break_2",
-   "fieldtype": "Column Break"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "column_break_4",
@@ -120,12 +121,12 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-08 17:58:41.467074",
+ "modified": "2022-03-14 17:26:40.723862",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal Entry",
  "name_case": "Title Case",
- "naming_rule": "By fieldname",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
