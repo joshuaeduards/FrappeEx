@@ -16,6 +16,9 @@ class PurchaseInvoice(Document):
 		name = f'{self.name}'
 		voucher_number = name.split("-")[0]
 
+		credit_to = f'{self.credit_to}'
+		expense_account = f'{self.expense_account}'
+
 		# items_table = f'{self.items_table}'
 		# for x in items_table:
 		# 	x['item']
@@ -30,12 +33,12 @@ class PurchaseInvoice(Document):
 			'due_date': due_date,
 			'party': party,
 			#'account': 'Inventory',
-			'account': naming_series,
+			'account': credit_to,
 			'debit_amount': amount,
 			'credit_amount': '',
 			'is_cancelled': '',
 			'voucher_type': 'Purchase Invoice',
-			'voucher_number': 'PI'+str(voucher_number)
+			'voucher_number': naming_series
 			})
 		doc_inv.insert()
 
@@ -45,12 +48,12 @@ class PurchaseInvoice(Document):
 			'due_date': due_date,
 			'party': party,
 			#'account': 'Product Expense',
-			'account': naming_series,
+			'account': expense_account,
 			'debit_amount': '',
 			'credit_amount': amount,
 			'is_cancelled': '',
 			'voucher_type': 'Purchase Invoice',
-			'voucher_number': 'PI'+str(voucher_number)	
+			'voucher_number': naming_series
 			})
 		doc_payable.insert()
 

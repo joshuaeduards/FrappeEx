@@ -109,7 +109,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Naming Series",
-   "options": "ACC-PE-.YYYY.-\nACC_PE-.YYYY.-",
+   "options": "ACC-PE-.YYYY.-.######.\nACC_PE-.YYYY.-.######.",
    "reqd": 1
   },
   {
@@ -127,7 +127,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-14 17:34:10.703992",
+ "modified": "2022-03-14 20:40:55.300941",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Payment Entry",

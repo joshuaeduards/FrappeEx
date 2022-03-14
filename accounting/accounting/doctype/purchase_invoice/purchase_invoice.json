@@ -30,7 +30,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Naming Series",
-   "options": "ACC-PI-.YYYY.-\nACC_PI-.YYYY.-",
+   "options": "ACC-PI-.YYYY.-.######.\nACC_PI-.YYYY.-.######.",
    "reqd": 1
   },
   {
@@ -125,7 +125,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-14 17:20:00.882046",
+ "modified": "2022-03-14 20:41:32.211552",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Purchase Invoice",
