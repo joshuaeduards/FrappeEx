@@ -79,8 +79,13 @@ class SalesInvoice(Document):
 		# 	})
 		# doc_cash.insert()
 	def on_cancel(self):
+		doc = f'{self.doc}'
 		name = f'{self.name}'
-		frappe.db.set_value('GL Entry', name, 'is_cancelled', 1)
+		# frappe.db.set_value('GL Entry', name, 'is_cancelled', 1)
+
+		# auto create another document
+		# if doc.allocated_to:
+		# doc.status = 'Closed'
 	# def autoname(self):
 	# 	naming_series = f'{self.naming_series}'
 	# 	frappe.db.set_value('GL Entry', naming_series, 'is_cancelled', True)
