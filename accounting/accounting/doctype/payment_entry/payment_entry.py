@@ -7,7 +7,6 @@ import frappe
 
 class PaymentEntry(Document):
 		def on_submit(self):
-			naming_series = f'{self.naming_series}'
 			posting_date = f'{self.posting_date}'
 
 			#party link(transaction->invoice) -> party(naming_series) 
@@ -15,7 +14,8 @@ class PaymentEntry(Document):
 			amount = f'{self.amount}'
 			name = f'{self.name}'
 			voucher_number = name.split("-")[0]
-
+			account_paid_from = f'{self.account_paid_from}'
+			account_paid_to = f'{self.account_paid_to}'
 			# items_table = f'{self.items_table}'
 			# for x in items_table:
 			# 	x['item']
@@ -30,12 +30,12 @@ class PaymentEntry(Document):
 				'due_date': '',
 				'party': party,
 				# 'account': 'Cash',
-				'account': naming_series,
+				'account': '',
 				'debit_amount': amount,
 				'credit_amount': '',
 				'is_cancelled': '',
 				'voucher_type': 'Payment Entry',
-				'voucher_number': 'PE'+str(voucher_number)
+				'voucher_number': name
 				})
 			doc_inv.insert()
 
@@ -45,11 +45,11 @@ class PaymentEntry(Document):
 				'due_date': '',
 				'party': party,
 				# 'account': 'Inventory',
-				'account': naming_series,
+				'account': '',
 				'debit_amount': '',
 				'credit_amount': amount,
 				'is_cancelled': '',
 				'voucher_type': 'Payment Entry',
-				'voucher_number': 'PE'+str(voucher_number)	
+				'voucher_number': name	
 				})
 			doc_payable.insert()

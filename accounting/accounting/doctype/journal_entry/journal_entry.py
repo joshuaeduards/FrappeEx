@@ -14,6 +14,7 @@ class JournalEntry(Document):
 			amount = f'{self.amount}'
 			total_debit = f'{self.total_debit}'
 			total_credit = f'{self.total_credit}'
+			name = f'{self.name}'
 
 			# items_table = f'{self.items_table}'
 			# for x in items_table:
@@ -33,7 +34,7 @@ class JournalEntry(Document):
 				'credit_amount': '',
 				'is_cancelled': '',
 				'voucher_type': 'Journal Entry',
-				'voucher_number': ''
+				'voucher_number': name
 				})
 			doc_inv.insert()
 
@@ -47,6 +48,6 @@ class JournalEntry(Document):
 				'credit_amount': total_credit,
 				'is_cancelled': '',
 				'voucher_type': 'Journal Entry',
-				'voucher_number': ''	
+				'voucher_number': name
 				})
 			doc_payable.insert()

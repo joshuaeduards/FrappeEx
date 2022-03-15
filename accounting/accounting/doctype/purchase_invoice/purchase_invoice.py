@@ -7,7 +7,6 @@ import frappe
 
 class PurchaseInvoice(Document):
 	def on_submit(self):
-		naming_series = f'{self.naming_series}'
 		posting_date = f'{self.posting_date}'
 		due_date = f'{self.payment_due_date}'
 		#party link(transaction->invoice) -> party(naming_series) 
@@ -38,7 +37,7 @@ class PurchaseInvoice(Document):
 			'credit_amount': '',
 			'is_cancelled': '',
 			'voucher_type': 'Purchase Invoice',
-			'voucher_number': naming_series
+			'voucher_number': name
 			})
 		doc_inv.insert()
 
@@ -53,7 +52,7 @@ class PurchaseInvoice(Document):
 			'credit_amount': amount,
 			'is_cancelled': '',
 			'voucher_type': 'Purchase Invoice',
-			'voucher_number': naming_series
+			'voucher_number': name
 			})
 		doc_payable.insert()
 
