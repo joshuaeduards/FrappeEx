@@ -50,46 +50,15 @@ class SalesInvoice(Document):
 			})
 		doc_cash.insert()
 
-		#JOURNAL ENTRY
-		# doc_inv = frappe.get_doc({
-		# 	'doctype': 'Journal Entry',
-		# 	'posting_date': posting_date,
-		# 	'due_date': due_date,
-		# 	'party': party,
-		# 	'account': 'Inventory',
-		# 	'debit_amount': amount,
-		# 	'credit_amount': '',
-		# 	'is_cancelled': '',
-		# 	'voucher_type': '',
-		# 	'voucher_number': ''
-		# 	})
-		# doc_inv.insert()
 
-		# doc_cash = frappe.get_doc({
-		# 	'doctype': 'Journal Entry',
-		# 	'posting_date': posting_date,
-		# 	'due_date': due_date,
-		# 	'party': party,
-		# 	'account': 'Cash',
-		# 	'debit_amount': '',
-		# 	'credit_amount': amount,
-		# 	'is_cancelled': '',
-		# 	'voucher_type': '',
-		# 	'voucher_number': ''	
-		# 	})
-		# doc_cash.insert()
 	def on_cancel(self):
-		doc = f'{self.doc}'
-		name = f'{self.name}'
-		# frappe.db.set_value('GL Entry', name, 'is_cancelled', 1)
-
-		# auto create another document
-		# if doc.allocated_to:
-		# doc.status = 'Closed'
-	# def autoname(self):
-	# 	naming_series = f'{self.naming_series}'
-	# 	frappe.db.set_value('GL Entry', naming_series, 'is_cancelled', True)
-
+		voucher_number = f'{self.name}'
+		frappe.db.sql(f"""
+			UPDATE `tabGL Entry` 
+			SET is_cancelled = 1
+			WHERE voucher_number = %s
+		""", voucher_number)
+		
 # @frappe.whitelist()
 # def get_item_rate(item_code):
 # 	sales_invoice = frappe.db.sql("SELECT standard_selling_rate FROM `tabItem` WHERE name = %s;", item_code)

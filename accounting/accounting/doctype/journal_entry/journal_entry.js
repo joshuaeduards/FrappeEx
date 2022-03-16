@@ -24,7 +24,6 @@ frappe.ui.form.on('Journal Entry', 'onload', function(frm){
 	// }
 });
 
-
 frappe.ui.form.on('Accounting Entries Table', {
 	debit: function(frm, cdt, cdn){
 		var d = locals[cdt][cdn];

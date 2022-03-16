@@ -18,13 +18,6 @@ class PurchaseInvoice(Document):
 		credit_to = f'{self.credit_to}'
 		expense_account = f'{self.expense_account}'
 
-		# items_table = f'{self.items_table}'
-		# for x in items_table:
-		# 	x['item']
-
-		#FOR SUBLEDGER
-		#########################
-
 		#GENERAL LEDGER
 		doc_inv = frappe.get_doc({
 			'doctype': 'GL Entry',
@@ -55,33 +48,13 @@ class PurchaseInvoice(Document):
 			'voucher_number': name
 			})
 		doc_payable.insert()
-
-		#JOURNAL ENTRY
-		# doc_inv = frappe.get_doc({
-		# 	'doctype': 'Journal Entry',
-		# 	'naming_series': naming_series,
-		# 	'party': party,
-		# 	'posting_date': posting_date,
-		# 	'account': 'Inventory',
-		# 	'debit_amount': amount,
-		# 	'credit_amount': '',
-		# 	'is_cancelled': '',
-		# 	'voucher_type': '',
-		# 	'voucher_number': ''
-		# 	})
-		# doc_inv.insert()
-
-		# doc_payable = frappe.get_doc({
-		# 	'doctype': 'Journal Entry',
-		# 	'posting_date': posting_date,
-		# 	'due_date': due_date,
-		# 	'party': party,
-		# 	'account': 'Accounts Payable',
-		# 	'debit_amount': '',
-		# 	'credit_amount': amount,
-		# 	'is_cancelled': '',
-		# 	'voucher_type': '',
-		# 	'voucher_number': ''	
-		# 	})
-		# doc_payable.insert()
+		
+	def on_cancel(self):
+		voucher_number = f'{self.name}'
+		frappe.db.sql(f"""
+			UPDATE `tabGL Entry` 
+			SET is_cancelled = 1
+			WHERE voucher_number = %s
+		""", voucher_number)
+		
 		
