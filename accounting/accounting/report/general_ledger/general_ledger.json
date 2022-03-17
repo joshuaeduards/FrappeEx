@@ -57,17 +57,17 @@
  "is_standard": "Yes",
  "json": "{}",
  "letter_head": "General Ledger",
- "modified": "2022-03-16 10:28:48.773976",
+ "modified": "2022-03-17 11:45:36.252869",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "General Ledger",
  "owner": "Administrator",
  "prepared_report": 0,
- "query": "SELECT `posting_date`, `account`, `voucher_number`, `debit_amount`, `credit_amount`\nFROM `tabGL Entry` \nGROUP BY `account`",
+ "query": "",
  "ref_doctype": "GL Entry",
  "report_name": "General Ledger",
  "report_script": "",
- "report_type": "Query Report",
+ "report_type": "Script Report",
  "roles": [
   {
    "role": "System Manager"

@@ -136,7 +136,7 @@ frappe.ui.form.on('Items Table', {
 		var d = locals[cdt][cdn];
 		var total_qty = 0;
 		var total_amount = 0;
-		frm.doc.accounting_entries_table.forEach(function(d){
+		frm.doc.items_table.forEach(function(d){
 			total_qty += d.qty;
 			total_amount += d.amount;
 		});
