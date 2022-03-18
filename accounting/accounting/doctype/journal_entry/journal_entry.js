@@ -5,30 +5,24 @@
 // 	frm.get_field("accounting_entries_table").grid.hide();
 // 	// HIDE ADD ROW IN CHILD TABLE
 // })
-class SetFilter {
-	constructor(frm, val = {}, field = "", fieldname = ""){
-		this.frm = frm;
-		this.val = val;
-		this.field = field;
-		this.fieldname = fieldname;
-	}
-	_filter(){
-		if(this.val != {} && this.field != "" && this.fieldname != ""){
-		(this.frm).set_query(this.field, this.fieldname, function() {
-				return { filters: this.val }
-			})
-		}
-	}
-}
+
+
 frappe.ui.form.on('Journal Entry', 'onload', function(frm){
-	new SetFilter(frm, 
-		{
-		party: "Customer",
-		is_group: 0
+	let df_account = frappe.meta.get_docfield("Accounting Entries Table", "account", frm.doc.name)
+	df_account.read_only = 1;
+
+	let df_party = frappe.meta.get_docfield("Accounting Entries Table", "party", frm.doc.name)
+	df_party.read_only = 1;
+
+	frm.set_query("account", "accounting_entries_table", function(frm){
+		return {
+			filters: {
+				docstatus: 1,
+				is_group: 0
+				}
 		}
-	, "party_type"
-	, "accounting_entries_table")._filter();
-	refresh_field('party');
+	})
+	refresh_field('account');
 })
 
 frappe.ui.form.on('Journal Entry', {
@@ -36,23 +30,37 @@ frappe.ui.form.on('Journal Entry', {
 		console.log(frm);
 
 		if(frm.selected_doc.party_type === "Customer"){
-			console.log("cust");
-			new SetFilter(frm, 
-				{
-				party: "Customer",
-				is_group: 0
+			let df_account= frappe.meta.get_docfield("Accounting Entries Table", "account", frm.doc.name)
+			df_account.read_only = 0;
+
+			let df_party = frappe.meta.get_docfield("Accounting Entries Table", "party", frm.doc.name)
+			df_party.read_only = 0;
+
+			frm.set_query("party", "accounting_entries_table", function(frm){
+				return {
+					filters: {
+						party_type: "Customer",
+						docstatus: 1,
+						}
 				}
-			, "party_type"
-			, "accounting_entries_table")._filter();
+			})
 			refresh_field('party');
 		}
 		if(frm.selected_doc.party_type === "Supplier"){
-			new SetFilter({
-				party: "Supplier",
-				is_group: 0
-			}
-			, "party_type"
-			, "accounting_entries_table")._filter();
+			let df_account= frappe.meta.get_docfield("Accounting Entries Table", "account", frm.doc.name)
+			df_account.read_only = 0;
+
+			let df_party = frappe.meta.get_docfield("Accounting Entries Table", "party", frm.doc.name)
+			df_party.read_only = 0;
+
+			frm.set_query("party", "accounting_entries_table", function(frm){
+				return {
+					filters: {
+						party_type: "Supplier",
+						docstatus: 1,
+						}
+				}
+			})
 			refresh_field('party');
 		}
 	},
