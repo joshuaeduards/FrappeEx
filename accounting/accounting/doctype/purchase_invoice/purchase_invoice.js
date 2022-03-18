@@ -95,7 +95,9 @@ frappe.ui.form.on('Purchase Invoice', 'onload', function(frm){
 	frm.set_query('supplier', function() {
 		return {
 			filters: {
-				party_type: 'Supplier' 
+				party_type: 'Supplier',
+				docstatus: 1,
+				is_group: 0
 			}
 		}
 	})
@@ -103,7 +105,9 @@ frappe.ui.form.on('Purchase Invoice', 'onload', function(frm){
 	frm.set_query('credit_to', function() {
 		return {
 			filters: {
-				account_type: 'Liability' 
+				account_type: 'Liability',
+				docstatus: 1,
+				is_group: 0 
 			}
 		}
 	})
@@ -111,7 +115,9 @@ frappe.ui.form.on('Purchase Invoice', 'onload', function(frm){
 	frm.set_query('expense_account', function() {
 		return {
 			filters: {
-				account_type: 'Expense' 
+				account_type: 'Expense',
+				docstatus: 1,
+				is_group: 0
 			}
 		}
 	})

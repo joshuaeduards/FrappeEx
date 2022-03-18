@@ -9,7 +9,7 @@
  "field_order": [
   "naming_series",
   "column_break_2",
-  "party",
+  "party_type",
   "column_break_4",
   "posting_date",
   "section_break_6",
@@ -28,14 +28,6 @@
    "fieldtype": "Select",
    "label": "Naming Series",
    "options": "ACC-JE-.YYYY.-.######.\nACC_JE-.YYYY.-.######.",
-   "reqd": 1
-  },
-  {
-   "fieldname": "party",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Party",
-   "options": "Party",
    "reqd": 1
   },
   {
@@ -116,12 +108,21 @@
   {
    "fieldname": "column_break_12",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "amended_from.amended_from",
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Party",
+   "options": "\nCustomer\nSupplier",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-14 20:41:21.101493",
+ "modified": "2022-03-18 15:40:12.837010",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal Entry",

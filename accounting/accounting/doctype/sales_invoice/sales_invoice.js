@@ -72,10 +72,13 @@ frappe.ui.form.on('Sales Invoice',{
 })
 
 frappe.ui.form.on('Sales Invoice', 'onload', function(frm){
+	console.log(frm);
+	// let status = frm.selected_doc.docstatus;
 	frm.set_query('customer', function() {
 		return {
 			filters: {
-				party_type: 'Customer' 
+				party_type: 'Customer',
+				docstatus: 1,
 			}
 		}
 	})
@@ -84,6 +87,8 @@ frappe.ui.form.on('Sales Invoice', 'onload', function(frm){
 		return {
 			filters: {
 				account_type: 'Asset',
+				docstatus: 1,
+				is_group: 0
 			}
 		}
 	})
@@ -92,6 +97,8 @@ frappe.ui.form.on('Sales Invoice', 'onload', function(frm){
 		return {
 			filters: {
 				account_type: 'Income',
+				docstatus: 1,
+				is_group: 0
 			}
 		}
 	})

@@ -29,7 +29,7 @@
    "in_list_view": 1,
    "label": "Naming Series",
    "length": 50,
-   "options": "ACC-SI-\nACC_SI-",
+   "options": "ACC-SI-.YYYY.-.######.\nACC_SI-.YYYY.-.######.",
    "reqd": 1
   },
   {
@@ -115,7 +115,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-17 11:06:44.846644",
+ "modified": "2022-03-18 15:59:37.249157",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Sales Invoice",

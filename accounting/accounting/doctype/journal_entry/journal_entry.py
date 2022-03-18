@@ -8,14 +8,11 @@ import frappe
 class JournalEntry(Document):
 	def on_submit(self):
 		posting_date = f'{self.posting_date}'
-		# party = f'{self.party}'
-		# amount = f'{self.amount}'
-		# total_debit = f'{self.total_debit}'
-		# total_credit = f'{self.total_credit}'
 		docname = f'{self.doctype}'
 		name = f'{self.name}'
 
-		accounting_entries_table = f'{self.accounting_entries_table}'
+		accounting_entries_table = self.accounting_entries_table
+
 		for x in accounting_entries_table:
 			account = x.account
 			party = x.party
