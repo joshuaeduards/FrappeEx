@@ -27,9 +27,16 @@
  "doctype": "Report",
  "filters": [
   {
-   "fieldname": "account",
-   "fieldtype": "Data",
-   "label": "Account",
+   "fieldname": "sdate_f",
+   "fieldtype": "Date",
+   "label": "Date From",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "edate_f",
+   "fieldtype": "Date",
+   "label": "Date To",
    "mandatory": 0,
    "wildcard_filter": 0
   }
@@ -38,7 +45,7 @@
  "is_standard": "Yes",
  "json": "{}",
  "letter_head": "Trial Balance",
- "modified": "2022-03-16 10:29:40.848045",
+ "modified": "2022-03-17 19:51:12.558202",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Trial Balance",
@@ -48,7 +55,7 @@
  "ref_doctype": "GL Entry",
  "report_name": "Trial Balance",
  "report_script": "",
- "report_type": "Query Report",
+ "report_type": "Script Report",
  "roles": [
   {
    "role": "System Manager"

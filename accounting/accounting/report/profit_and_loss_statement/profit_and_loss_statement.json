@@ -46,7 +46,7 @@
  "is_standard": "Yes",
  "json": "{}",
  "letter_head": "Trial Balance",
- "modified": "2022-03-16 11:10:02.332884",
+ "modified": "2022-03-17 20:07:40.642552",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Profit and Loss Statement",
@@ -56,7 +56,7 @@
  "ref_doctype": "GL Entry",
  "report_name": "Profit and Loss Statement",
  "report_script": "sdate = filters.fieldname.sdate_f\nedate = filters.fieldname.edate_f\n\n\nif(sdate !== \"\" && edate !== \"\") \n    result = fraappe.qb.from_('GL Entry')\n        .select(`posting_date`, `account`, `voucher_number`, `debit_amount`, `credit_amount`)\n        .where(posting_date >= sdate AND posting_date <= edate)",
- "report_type": "Query Report",
+ "report_type": "Script Report",
  "roles": [
   {
    "role": "System Manager"

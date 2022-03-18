@@ -1,5 +1,9 @@
-frappe.query_reports['Profit and Loss Statement'] = {
-    'filters': [
+// Copyright (c) 2022, -- and contributors
+// For license information, please see license.txt
+/* eslint-disable */
+
+frappe.query_reports["Trial Balance"] = {
+	"filters": [
         {
             "fieldname": "sdate_f",
             "label": __("Date From"),
@@ -12,5 +16,5 @@ frappe.query_reports['Profit and Loss Statement'] = {
             "fieldtype": "Date",
             "default": ''
         }
-    ]
-}
+	]
+};
