@@ -9,12 +9,10 @@ class PurchaseInvoice(Document):
 	def on_submit(self):
 		posting_date = f'{self.posting_date}'
 		due_date = f'{self.payment_due_date}'
-		#party link(transaction->invoice) -> party(naming_series) 
 		party = f'{self.supplier}'
 		amount = f'{self.total_amount}'
 		name = f'{self.name}'
-		voucher_number = name.split("-")[0]
-
+		docname = f'{self.doctype}'
 		credit_to = f'{self.credit_to}'
 		expense_account = f'{self.expense_account}'
 
@@ -29,7 +27,7 @@ class PurchaseInvoice(Document):
 			'debit_amount': amount,
 			'credit_amount': '',
 			'is_cancelled': '',
-			'voucher_type': 'Purchase Invoice',
+			'voucher_type': docname,
 			'voucher_number': name
 			})
 		doc_inv.insert()
@@ -44,11 +42,11 @@ class PurchaseInvoice(Document):
 			'debit_amount': '',
 			'credit_amount': amount,
 			'is_cancelled': '',
-			'voucher_type': 'Purchase Invoice',
+			'voucher_type': docname,
 			'voucher_number': name
 			})
 		doc_payable.insert()
-		
+
 	def on_cancel(self):
 		voucher_number = f'{self.name}'
 		frappe.db.sql(f"""

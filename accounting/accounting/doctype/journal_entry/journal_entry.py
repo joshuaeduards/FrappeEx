@@ -12,6 +12,7 @@ class JournalEntry(Document):
 		# amount = f'{self.amount}'
 		# total_debit = f'{self.total_debit}'
 		# total_credit = f'{self.total_credit}'
+		docname = f'{self.doctype}'
 		name = f'{self.name}'
 
 		accounting_entries_table = f'{self.accounting_entries_table}'
@@ -32,7 +33,7 @@ class JournalEntry(Document):
 					'debit_amount': debit,
 					'credit_amount': '',
 					'is_cancelled': '',
-					'voucher_type': 'Journal Entry',
+					'voucher_type': docname,
 					'voucher_number': name
 					})
 				doc_inv.insert()
@@ -47,7 +48,7 @@ class JournalEntry(Document):
 					'debit_amount': '',
 					'credit_amount': credit,
 					'is_cancelled': '',
-					'voucher_type': 'Journal Entry',
+					'voucher_type': docname,
 					'voucher_number': name
 					})
 				doc_payable.insert()

@@ -57,8 +57,9 @@
   },
   {
    "fieldname": "voucher_type",
-   "fieldtype": "Data",
-   "label": "Voucher Type"
+   "fieldtype": "Select",
+   "label": "Voucher Type",
+   "options": "Sales Invoice\nPurchase Invoice\nPayment Entry\nJournal Entry"
   },
   {
    "fieldname": "voucher_number",
@@ -77,7 +78,7 @@
  ],
  "in_create": 1,
  "links": [],
- "modified": "2022-03-14 20:39:19.374265",
+ "modified": "2022-03-18 09:55:26.256560",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "GL Entry",

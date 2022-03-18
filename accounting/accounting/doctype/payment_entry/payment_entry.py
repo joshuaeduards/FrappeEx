@@ -11,6 +11,7 @@ class PaymentEntry(Document):
 		party = f'{self.party}'
 		amount = f'{self.amount}'
 		name = f'{self.name}'
+		docname = f'{self.doctype}'
 		account_paid_from = f'{self.account_paid_from}'
 		account_paid_to = f'{self.account_paid_to}'
 
@@ -25,7 +26,7 @@ class PaymentEntry(Document):
 			'debit_amount': amount,
 			'credit_amount': '',
 			'is_cancelled': '',
-			'voucher_type': 'Payment Entry',
+			'voucher_type': docname,
 			'voucher_number': name
 			})
 		doc_inv.insert()
@@ -40,7 +41,7 @@ class PaymentEntry(Document):
 			'debit_amount': '',
 			'credit_amount': amount,
 			'is_cancelled': '',
-			'voucher_type': 'Payment Entry',
+			'voucher_type': docname,
 			'voucher_number': name	
 			})
 		doc_payable.insert()

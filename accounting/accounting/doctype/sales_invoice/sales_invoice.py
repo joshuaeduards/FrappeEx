@@ -14,8 +14,7 @@ class SalesInvoice(Document):
 		party = f'{self.customer}'
 		amount = f'{self.total_amount}'
 		name = f'{self.name}'
-		gl_name = name.split("-")[0]
-
+		docname = f'{self.doctype}'
 		debit_to = f'{self.debit_to}'
 		income_account = f'{self.income_account}'
 		
@@ -30,7 +29,7 @@ class SalesInvoice(Document):
 			'debit_amount': amount,
 			'credit_amount': '',
 			'is_cancelled': '',
-			'voucher_type': 'Sales Invoice',
+			'voucher_type': docname,
 			'voucher_number': name
 			})
 		doc_inv.insert()
@@ -45,7 +44,7 @@ class SalesInvoice(Document):
 			'debit_amount': '',
 			'credit_amount': amount,
 			'is_cancelled': '',
-			'voucher_type': 'Sales Invoice',
+			'voucher_type': docname,
 			'voucher_number': name
 			})
 		doc_cash.insert()
