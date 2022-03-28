@@ -1,0 +1,33 @@
+[
+ {
+  "absolute_value": 0,
+  "align_labels_right": 0,
+  "css": "",
+  "custom_format": 0,
+  "default_print_language": "en-US",
+  "disabled": 0,
+  "doc_type": "Payment Entry",
+  "docstatus": 0,
+  "doctype": "Print Format",
+  "font": null,
+  "font_size": 18,
+  "format_data": "[{\"fieldname\": \"print_heading_template\", \"fieldtype\": \"Custom HTML\", \"options\": \"<div class=\\\"print-heading\\\">\\t\\t\\t\\t\\n    <h2>\\n        <div style=>Gada Electronics</div>\\n        <!--<small style=\\\"float: right\\\"> {{ doc.name }}</small>-->\\n    </h2>\\n</div>\"}, {\"fieldtype\": \"Section Break\", \"label\": \"Product Reference ID\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"naming_series\", \"print_hide\": 0, \"label\": \"Naming Series\"}, {\"fieldtype\": \"Section Break\", \"label\": \"Transaction Details\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"posting_date\", \"print_hide\": 0, \"label\": \"Posting Date\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"party\", \"print_hide\": 0, \"label\": \"Party\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldname\": \"amount\", \"print_hide\": 0, \"align\": \"left\", \"label\": \"Amount\"}, {\"fieldtype\": \"Section Break\", \"label\": \"-------------------------------------------------------------------------------------------------------\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldtype\": \"Column Break\"}, {\"fieldtype\": \"Column Break\"}]",
+  "html": "<table>\n    test\n</table>",
+  "line_breaks": 1,
+  "margin_bottom": 20.0,
+  "margin_left": 20.0,
+  "margin_right": 20.0,
+  "margin_top": 20.0,
+  "modified": "2022-03-09 11:40:34.287999",
+  "module": "Accounting",
+  "name": "Receipt",
+  "page_number": "Hide",
+  "print_format_builder": 0,
+  "print_format_builder_beta": 0,
+  "print_format_type": "Jinja",
+  "raw_commands": null,
+  "raw_printing": 0,
+  "show_section_headings": 1,
+  "standard": "No"
+ }
+]

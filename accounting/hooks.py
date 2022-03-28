@@ -188,3 +188,16 @@ app_license = "MIT"
 # 	"accounting.auth.validate"
 # ]
 
+# Workspace
+
+fixtures = [
+    {
+    "doctype": "Workspace", 
+    "filters": {
+            "name": ["in", "Gada Electronics-Administrator"]
+        }
+    },
+    "Print Format",
+    "Custom Field"
+]
+
